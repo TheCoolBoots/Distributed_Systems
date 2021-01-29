@@ -11,8 +11,8 @@ public class SalesMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
     @Override
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String[] tokens = value.toString().trim().split(" ");
-        String date = tokens[1].split(", ")[1];
+        String[] tokens = value.toString().trim().split(", ");
+        String date = tokens[1];
         context.write(new Text(date), new IntWritable(1));
     }
 }

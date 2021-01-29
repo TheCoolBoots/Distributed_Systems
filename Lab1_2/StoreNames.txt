@@ -1,0 +1,100 @@
+Walmart
+Target
+Grocery Outlet
+99 Cent Store
+Sears
+Ross
+Best Buy
+Urban Outfitters
+Stapes
+REI
+Quiznos
+Pac Sun
+Nordstrom
+Nordstrom Rack
+Marshall's
+Lowe's
+IGA
+Hollister
+Gap
+US Postal Service
+UPS
+Radio Shack
+Costco
+Pavilions
+Ralphs
+JCPenny
+IHOP
+Hot Topic
+Gap
+Adidas
+HP
+Starbucks
+Netflix
+Toys R US
+Cabela's
+Office Depot
+Ebay
+Newegg
+Home Depot
+McDonalds
+CocaCola
+Apple
+Microsoft
+Disney
+IKEA
+UPS
+CVS
+Trader Joes
+Whole Foods
+Rite Aid
+Dollar Tree
+Sprouts
+CVS
+Kmart
+Sam's Club
+Zara
+H&M
+Guess
+Nike
+Uniqlo
+Amazon
+L&L
+Panda express
+Yoshinoya
+Cinnabon
+Einstein Bros.
+Insomnia Cookies
+Krispy Kreme
+Wetzel's Pretzels
+Dutch Bros.
+Jamba Juice
+Peet's Coffee
+Orange Julius
+Tim Hortons
+Chick-fil-A
+KFC
+Wingstop
+Baskin-Robbins
+Carvel
+Dairy Queen
+Hondel's
+Yogurtland
+Five Guys
+Fuddruckers
+Shake Shack
+Sonic
+Umami Burger
+Wendy's
+Wienerschnitzel
+Baja Fresh
+La Salsa
+Taco Bell
+Blaze Pizza
+Papa John's Pizza
+MOD Pizza
+Sammy's
+Veggie Grill
+Arby's
+Daphne's Greek Cafe
+Panera Bread

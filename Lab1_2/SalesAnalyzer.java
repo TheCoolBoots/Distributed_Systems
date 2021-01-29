@@ -15,13 +15,13 @@ import java.util.Collections;
 
 class SalesAnalyzer {
 
-    public static void analyzeSales(String lineItemFilepath, String salesFilepath) throws IOException {
+    public static void analyzeSales(String salesFilepath) throws IOException {
 
-        LinkedList<String> salesDates = importSalesDates(salesFilepath);
+        // LinkedList<String> salesDates = importSalesDates(salesFilepath);
 
         Hashtable<String, Integer> numSalesByDate = new Hashtable<String, Integer>();
 
-        BufferedReader br = new BufferedReader(new FileReader(lineItemFilepath)); // creates a buffering character input
+        BufferedReader br = new BufferedReader(new FileReader(salesFilepath)); // creates a buffering character input
                                                                                   // stream
 
         String currentLine;
@@ -29,42 +29,22 @@ class SalesAnalyzer {
         while ((currentLine = br.readLine()) != null) {
             String[] tokens = currentLine.split(", ");
 
+            if(tokens.length != 5)
+                System.out.println("INFO: bad input skipped");
+            else {
+                String salesDate = tokens[1];
 
-            int salesID = Integer.parseInt(tokens[1]);
-            String salesDate = salesDates.get(salesID);
-
-            int quantity = Integer.parseInt(tokens[3]);
-
-            if(numSalesByDate.containsKey(salesDate)){
-                numSalesByDate.put(salesDate, numSalesByDate.get(salesDate) + quantity);
-            }
-            else{
-                numSalesByDate.put(salesDate, quantity);
+                if (numSalesByDate.containsKey(salesDate)) {
+                    numSalesByDate.put(salesDate, numSalesByDate.get(salesDate) + 1);
+                } else {
+                    numSalesByDate.put(salesDate, 1);
+                }
             }
         }
 
         br.close();
 
         writeToFile("analysis.out", numSalesByDate);
-    }
-
-    private static LinkedList<String> importSalesDates(String salesFilepath) throws IOException {
-        LinkedList<String> salesDates = new LinkedList<String>();
-
-        BufferedReader br = new BufferedReader(new FileReader(salesFilepath));  //creates a buffering character input stream  
-
-        String currentLine;
-
-        while( (currentLine = br.readLine()) != null){
-
-            String saleDate = currentLine.split(", ")[1];
-
-            salesDates.addLast(saleDate);            
-        }
-
-        br.close();
-
-        return salesDates;
     }
 
     private static void writeToFile(String filepath, Hashtable<String, Integer> table) throws IOException{
@@ -90,7 +70,7 @@ class SalesAnalyzer {
 
     public static void main(String[] args) {
         try {
-            analyzeSales("lineItems.out", "sales.out");
+            analyzeSales("sales.out");
         } catch (IOException e) {
             e.printStackTrace();
         }
