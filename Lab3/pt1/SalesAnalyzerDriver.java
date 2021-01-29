@@ -1,18 +1,23 @@
-package Lab2;
+package Lab3.pt1;
 
-import org.apache.log4j.*;
-import org.apache.hadoop.util.*;
-import org.apache.hadoop.conf.*;
-import org.apache.hadoop.fs.*;
-import org.apache.hadoop.io.*;
-import org.apache.hadoop.mapreduce.*;
-import org.apache.hadoop.mapreduce.lib.output.*;
-import org.apache.hadoop.mapreduce.lib.input.*;
+import org.apache.hadoop.conf.Configured;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
+import org.apache.log4j.Logger;
 
 
 public class SalesAnalyzerDriver extends Configured implements Tool {
 
     private static final Logger THE_LOGGER = Logger.getLogger(SalesAnalyzerDriver.class);
+
+    // find all sales for a given day
+    // output in ascending order
 
     @Override
     public int run(String[] args) throws Exception {
@@ -21,11 +26,12 @@ public class SalesAnalyzerDriver extends Configured implements Tool {
         job.setJobName("SalesAnalyzer"); //same as java class name 
         job.setOutputKeyClass(Text.class); //output key class for reduce function
         job.setOutputValueClass(IntWritable.class); //output value class for reduce function
-        job.setMapOutputKeyClass(Text.class); //output key class for map function
+        job.setMapOutputKeyClass(CompositeKey.class); //output key class for map function
         job.setMapOutputValueClass(IntWritable.class); //output value class for map function
         job.setMapperClass(SalesMapper.class);//sets the mapper
         job.setReducerClass(SalesReducer.class);//sets the reducer
-        job.setCombinerClass(SalesCombiner.class);
+        job.setPartitionerClass(SalesPartitioner.class);
+        job.setGroupingComparatorClass(SalesGroupingComparator.class);
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         boolean status = job.waitForCompletion(true); //runs the job, returns true if executed successfully 
