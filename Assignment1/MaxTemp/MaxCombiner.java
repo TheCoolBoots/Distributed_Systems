@@ -1,4 +1,4 @@
-package Assignment1.MaxTemp;
+
 
 import java.io.*;
 import org.apache.hadoop.io.*;

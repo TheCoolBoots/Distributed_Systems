@@ -1,4 +1,3 @@
-package Assignment1.MaxTemp;
 
 import org.apache.log4j.*;
 import org.apache.hadoop.util.*;

@@ -1,4 +1,4 @@
-package Assignment2;
+
 
 import java.io.*;
 import org.apache.hadoop.io.*;
