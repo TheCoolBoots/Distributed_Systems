@@ -1,4 +1,4 @@
-package Assignment1.CountDivisible;
+
 
 import org.apache.log4j.*;
 import org.apache.hadoop.util.*;

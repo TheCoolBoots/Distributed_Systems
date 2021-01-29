@@ -1,4 +1,3 @@
-package Assignment1.CountDivisible;
 
 import java.io.*;
 import org.apache.hadoop.io.*;
