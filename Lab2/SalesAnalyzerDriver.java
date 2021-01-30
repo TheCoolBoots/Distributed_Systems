@@ -1,4 +1,4 @@
-package Lab2;
+
 
 import org.apache.log4j.*;
 import org.apache.hadoop.util.*;
